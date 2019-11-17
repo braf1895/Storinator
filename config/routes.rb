@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :items
+  get 'items/index'
+  get 'items/new'
+  get 'items/edit'
+  get 'items/show'
+  resources :locations
+  get 'locations/edit'
+  get 'locations/index'
+  get 'locations/new'
+  get 'locations/show'
   root 'home#index'
 
     resources :users

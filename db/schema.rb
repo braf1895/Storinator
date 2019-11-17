@@ -10,23 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_16_154430) do
+ActiveRecord::Schema.define(version: 2019_11_17_194505) do
 
-  create_table "items", primary_key: "ITEM_NUMBER", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "ITEM_NAME", null: false
-    t.integer "LOCATION_ID", null: false
-    t.integer "ITEM_AVAILABLE", null: false
-    t.integer "ITEM_INUSE", null: false
-    t.virtual "ITEM_TOTAL", type: :integer, as: "(`ITEM_AVAILABLE` + `ITEM_INUSE`)"
-    t.string "DESCRIPTION"
-    t.index ["ITEM_NUMBER"], name: "ITEM_NUMBER", unique: true
-    t.index ["LOCATION_ID"], name: "LOCATION_ID"
+  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "iName"
+    t.bigint "locations_id", null: false
+    t.integer "iAvail"
+    t.integer "iUsed"
+    t.integer "iTotal"
+    t.string "iDesc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["locations_id"], name: "index_items_on_locations_id"
   end
 
-  create_table "locations", primary_key: "LOCATION_ID", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "LOCATION_NAME", null: false
-    t.string "LOCATION_DESC"
-    t.index ["LOCATION_ID"], name: "LOCATION_ID", unique: true
+  create_table "locations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "locName"
+    t.string "locDesc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -39,5 +41,5 @@ ActiveRecord::Schema.define(version: 2019_11_16_154430) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "items", "locations", column: "LOCATION_ID", primary_key: "LOCATION_ID", name: "items_ibfk_1"
+  add_foreign_key "items", "locations", column: "locations_id"
 end
