@@ -12,32 +12,28 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :iName %>
+    <%= form.label "Item Name" %>
     <%= form.text_field :iName %>
   </div>
 
   <div class="field">
-    <%= form.label :locations_id %>
-    <%= form.text_field :locations_id %>
+    <% options = options_from_collection_for_select(@loc, 'id', 'locName') %>
+    <%= form.label "Location" %>
+    <%= form.select :locations_id, options %>
   </div>
 
   <div class="field">
-    <%= form.label :iAvail %>
+    <%= form.label "Number Available" %>
     <%= form.number_field :iAvail %>
   </div>
 
   <div class="field">
-    <%= form.label :iUsed %>
+    <%= form.label "Number In Use" %>
     <%= form.number_field :iUsed %>
   </div>
 
   <div class="field">
-    <%= form.label :iTotal %>
-    <%= form.number_field :iTotal %>
-  </div>
-
-  <div class="field">
-    <%= form.label :iDesc %>
+    <%= form.label "Description (255 characters max)" %>
     <%= form.text_field :iDesc %>
   </div>
 
