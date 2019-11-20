@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_17_194505) do
+ActiveRecord::Schema.define(version: 2019_11_17_200419) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "iName"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_11_17_194505) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "isAdmin"
   end
 
   add_foreign_key "items", "locations", column: "locations_id"

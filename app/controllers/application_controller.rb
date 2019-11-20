@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def checkAdmin!
+    if session[:user_isAdmin] == 0
+      redirect_to root_url, :notice => 'You do not have permission to view that!'
+    end
+  end
   def authenticate_user!
       if session[:user_id]
 
