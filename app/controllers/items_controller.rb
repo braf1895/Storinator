@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    #@stor = Location.find_by_id(Item.)
   end
 
   # GET /items/new

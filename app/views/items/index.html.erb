@@ -19,7 +19,7 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.iName %></td>
-        <td><%= item.locations_id %></td>
+        <td><%= @loc.find_by_id(item.locations_id).locName %></td>
         <td><%= item.iAvail %></td>
         <td><%= item.iUsed %></td>
         <td><%= item.iTotal %></td>
