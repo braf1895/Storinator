@@ -4,48 +4,52 @@
   <title>Welcome!</title>
 </head>
 <body class="bg-light">
-  <nav class="navbar navbar-expand-md bg-primary">
-    <div class="navbar-collapse collapse w-100 order-0 order-md-0 dual-collapse2">
+<nav class="navbar navbar-expand-md bg-primary">
+  <div class="navbar-collapse collapse w-100 order-0 order-md-0 dual-collapse2">
     <ul class="navbar-nav">
       <li class="navbar-brand">
-          <a class="nav-link text-dark" href="/">Storinator</a>
+        <a class="nav-link text-dark" href="/">Storinator</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="<%= %>">Search</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="<%= locations_path%>">Locations</a>
+        <a class="nav-link text-dark" href="<%= locations_path %>">Locations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="<%= items_path%>"">Items</a>
+        <a class="nav-link text-dark" href="<%= items_path %>"">Items</a>
       </li>
       <li class="nav-item" id='admins'>
         <a class="nav-link text-dark" href="<%= users_path %>">Administration</a>
       </li>
-      </div>
-      <div class="order-3">
-        <ul class="navbar-nav">
-          <li class="nav-item float-right">
-            <a class="btn btn-warning text-dark" href="<%= logout_path%>">Logout</a>
-          </li>
-      </ul>
-    </div>
-  </nav>
-<h1>Welcome, <%= session['user_fName']%>!</h1>
-<script type='text/javascript'>
-  function isAdmin(){
-    var ad = <%= session['user_isAdmin'] %>;
-    console.log(ad);
-    if(ad === 0){
-      document.getElementById('admins').style.display="none";
-    }
-  };
-  isAdmin();
-</script>
-<h2 id=”notice”><%= notice %></h2>
-<h2>Full View</h2>
-<ul class="list-group">
-  <li class='list-group-item'></li>
-</ul>
+  </div>
+  <div class="order-3">
+    <ul class="navbar-nav">
+      <li class="nav-item float-right">
+        <a class="btn btn-warning text-dark" href="<%= logout_path %>">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <h1>Welcome, <%= session['user_fName'] %>!</h1>
+  <script type='text/javascript'>
+      function isAdmin() {
+          var ad = <%= session['user_isAdmin'] %>;
+          console.log(ad);
+          if (ad === 0) {
+              document.getElementById('admins').style.display = "none";
+          }
+      };
+      isAdmin();
+  </script>
+  <h2 id=”notice”><%= notice %></h2>
+  <h2>Full View</h2>
+  <ul class="list-group">
+    <li class='list-group-item'></li>
+  </ul>
+</div>
 </body>
 </html>

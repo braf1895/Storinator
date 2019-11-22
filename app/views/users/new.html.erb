@@ -1,5 +1,38 @@
-<h1>New User</h1>
+<nav class="navbar navbar-expand-md bg-primary">
+  <div class="navbar-collapse collapse w-100 order-0 order-md-0 dual-collapse2">
+    <ul class="navbar-nav">
+      <li class="navbar-brand">
+        <a class="nav-link text-dark" href="/">Storinator</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="<%= %>">Search</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="<%= locations_path %>">Locations</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="<%= items_path %>"">Items</a>
+      </li>
+      <li class="nav-item" id='admins'>
+        <a class="nav-link text-dark" href="<%= users_path %>">Administration</a>
+      </li>
+  </div>
+  <div class="order-3">
+    <ul class="navbar-nav">
+      <li class="nav-item float-right">
+        <a class="btn btn-warning text-dark" href="<%= logout_path %>">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-<%= render 'form', user: @user %>
+
+<div class="container">
+
+  <h1>New User</h1>
+
+  <%= render 'form', user: @user %>
+
+</div>
 
 <%= link_to 'Back', users_path, :class => "btn btn-warning text-dark" %>
