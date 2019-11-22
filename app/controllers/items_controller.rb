@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     #@stor = Location.find_by_id(Item.)
+    @loc = Location.all
   end
 
   # GET /items/new
@@ -21,6 +22,7 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
+    @loc = Location.all
   end
 
   # POST /items
