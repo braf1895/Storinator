@@ -11,17 +11,24 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :locName %>
-    <%= form.text_field :locName %>
+  <br/>
+  <div class="form-group">
+
+    <div class="field">
+      <%= form.label :locName, :class => "form-text" %>
+      <%= form.text_field :locName %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :locDesc %>
-    <%= form.text_field :locDesc %>
-  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= form.label :locDesc, :class => "form-text" %>
+      <%= form.text_field :locDesc %>
+    </div>
 
+  </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class: 'btn btn-success'%>
   </div>
+  <br/>
 <% end %>
