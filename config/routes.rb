@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search/searchbar'
+  get 'search/results'
   resources :items
   get 'items/index'
   get 'items/new'
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   get 'locations/new'
   get 'locations/show'
   root 'home#index'
+
+
 
     resources :users
     resources :sessions, only: [:new, :create, :destroy]

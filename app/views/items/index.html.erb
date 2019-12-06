@@ -5,7 +5,7 @@
         <a class="nav-link text-dark" href="/">Storinator</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="<%= %>">Search</a>
+        <a class="nav-link text-dark" href="<%= search_searchbar_path %>">Search</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="<%= locations_path %>">Locations</a>
@@ -25,6 +25,17 @@
     </ul>
   </div>
 </nav>
+
+<script type='text/javascript'>
+    function isAdmin() {
+        var ad = <%= session['user_isAdmin'] %>;
+        console.log(ad);
+        if (ad === 0) {
+            document.getElementById('admins').style.display = "none";
+        }
+    };
+    isAdmin();
+</script>
 
 <div class="container">
 

@@ -1,0 +1,49 @@
+<body class="bg-light">
+  <nav class="navbar navbar-expand-md bg-primary">
+    <div class="navbar-collapse collapse w-100 order-0 order-md-0 dual-collapse2">
+      <ul class="navbar-nav">
+        <li class="navbar-brand">
+          <a class="nav-link text-dark" href="/">Storinator</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<%= search_searchbar_path %>">Search</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<%= locations_path %>">Locations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="<%= items_path %>"">Items</a>
+        </li>
+        <li class="nav-item" id='admins'>
+          <a class="nav-link text-dark" href="<%= users_path %>">Administration</a>
+        </li>
+    </div>
+    <div class="order-3">
+      <ul class="navbar-nav">
+        <li class="nav-item float-right">
+          <a class="btn btn-warning text-dark" href="<%= logout_path %>">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <script type='text/javascript'>
+      function isAdmin() {
+          var ad = <%= session['user_isAdmin'] %>;
+          console.log(ad);
+          if (ad === 0) {
+              document.getElementById('admins').style.display = "none";
+          }
+      };
+      isAdmin();
+  </script>
+
+<%= form_tag(search_results_path, :method => "get",
+    class: 'navbar-form navbar-left') do %>
+  <div class="input-group">
+    <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
+    <div class="input-group-btn">
+      <%= button_tag "", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+    </div>
+  </div>
+<% end %>

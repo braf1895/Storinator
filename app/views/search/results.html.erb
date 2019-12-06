@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  <title>Welcome!</title>
+  <title>Search Results</title>
 </head>
 <body class="bg-light">
 <nav class="navbar navbar-expand-md bg-primary">
@@ -32,38 +32,22 @@
   </div>
 </nav>
 
-<div class="container">
+<script type='text/javascript'>
+    function isAdmin() {
+        var ad = <%= session['user_isAdmin'] %>;
+        console.log(ad);
+        if (ad === 0) {
+            document.getElementById('admins').style.display = "none";
+        }
+    };
+    isAdmin();
+</script>
 
-  <h1>Welcome, <%= session['user_fName'] %>!</h1>
-  <script type='text/javascript'>
-      function isAdmin() {
-          var ad = <%= session['user_isAdmin'] %>;
-          console.log(ad);
-          if (ad === 0) {
-              document.getElementById('admins').style.display = "none";
-          }
-      };
-      isAdmin();
-  </script>
-
-  <h2>Full View</h2>
-      <tbody>
-      <% @loc.each do |location| %>
-          <h3><%= location.locName %></h3>
-          <tbody>
-          <% @Item.join do |item|%>
-          <tr>
-            <td><%= item.iName %></td>
-            <td><%= @loc.find_by_id(item.locations_id).locName %></td>
-            <td><%= item.iAvail %></td>
-            <td><%= item.iUsed %></td>
-            <td><%= item.iTotal %></td>
-            <td><%= item.iDesc %></td>
-          </tr>
-          <% end %>
-          </tbody>
-          <% end %>
-      </tbody>
-</div>
+<h2 id=”notice”><%= notice %></h2>
+<tbody>
+<% @results.each do |result| %>
+        <%= result.iName %><br>
+    <% end %>
+</<tbody>
 </body>
 </html>
