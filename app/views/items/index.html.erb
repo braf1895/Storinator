@@ -5,15 +5,15 @@
   <h1>Items</h1>
 
   </br>
-  <table>
+  <table class="table">
     <thead>
     <tr>
-      <th>Item Name</th>
-      <th>Location</th>
-      <th>Number Available</th>
-      <th>Number In Use</th>
-      <th>Total Count</th>
-      <th>Description</th>
+      <th class="col">Item Name</th>
+      <th classs="col">Location</th>
+      <th classs="col">Number Available</th>
+      <th classs="col">Number In Use</th>
+      <th classs="col">Total Count</th>
+      <th classs="col">Description</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -21,12 +21,12 @@
     <tbody>
     <% @items.each do |item| %>
       <tr>
-        <td><%= item.iName %></td>
-        <td><%= @loc.find_by_id(item.locations_id).locName %></td>
-        <td><%= item.iAvail %></td>
-        <td><%= item.iUsed %></td>
-        <td><%= item.iTotal %></td>
-        <td><%= item.iDesc %></td>
+        <td class="row'"><%= item.iName %></td>
+        <td class="row'"><%= @loc.find_by_id(item.locations_id).locName %></td>
+        <td class="row'"><%= item.iAvail %></td>
+        <td class="row'"><%= item.iUsed %></td>
+        <td class="row'"><%= item.iTotal %></td>
+        <td class="row'"><%= item.iDesc %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>

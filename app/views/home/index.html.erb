@@ -2,28 +2,32 @@
   <head>
     <title>Welcome!</title>
   </head>
-  <h1>All Items</h1>
-  </br>
+  <h1>All Items in Stock</h1>
   <tbody>
   <% @loc.each do |location| %>
     </br>
     <h3><%= location.locName %></h3>
-    <table>
+    <table class="table">
+      <thead>
       <tr>
-        <td>Name</td>
-        <td>Number Available</td>
-        <td>Number In Use</td>
-        <td>Total Items</td>
-        <td>Item Description</td>
+        <td scope="col">Name</td>
+        <td scope="col">Number Available</td>
+        <td scope="col">Number In Use</td>
+        <td scope="col">Total Items</td>
+        <td scope="col">Item Description</td>
       </tr>
+      </thead>
       <% @Item.where(locations_id: location.id).find_each do |item| %>
+        <tbody>
         <tr>
-          <td><%= item.iName %></td>
-          <td><%= item.iAvail %></td>
-          <td><%= item.iUsed %></td>
-          <td><%= item.iTotal %></td>
-          <td><%= item.iDesc %></td>
+          <td scope="row"><%= item.iName %></td>
+          <td scope="row"><%= item.iAvail %></td>
+          <td scope="row"><%= item.iUsed %></td>
+          <td scope="row"><%= item.iTotal %></td>
+          <td scope="row"><%= item.iDesc %></td>
         </tr>
+        </tbody>
+
       <% end %>
     </table>
   <% end %>

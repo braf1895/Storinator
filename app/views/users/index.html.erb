@@ -6,14 +6,14 @@
 
   <br/>
 
-  <table>
+  <table class="table">
     <thead>
     <tr>
-      <th>Uname</th>
-      <th>Fname</th>
-      <th>Lname</th>
-      <th>Email</th>
-      <th>Admin</th>
+      <th class="col">Uname</th>
+      <th class="col">Fname</th>
+      <th class="col">Lname</th>
+      <th class="col">Email</th>
+      <th class="col">Admin</th>
       <th colspan="3"></th>
     </tr>
     </thead>
@@ -21,11 +21,11 @@
     <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.uName %></td>
-        <td><%= user.fName %></td>
-        <td><%= user.lName %></td>
-        <td><%= user.email %></td>
-        <td><%= user.isAdmin %></td>
+        <td ><%= user.uName %></td>
+        <td ><%= user.fName %></td>
+        <td ><%= user.lName %></td>
+        <td ><%= user.email %></td>
+        <td ><%= user.isAdmin %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: {confirm: 'Are you sure?'} %></td>
