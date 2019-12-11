@@ -11,24 +11,30 @@
     </div>
   <% end %>
 
-  <br/>
-  <div class="form-group">
+  <%= bootstrap_form_for(@location) do |form| %>
 
-    <div class="field">
-      <%= form.label "Location Name" %>
-      <%= form.text_field :locName %>
-    </div>
-  </div>
+    <br/>
+    <div class="form-group">
 
-  <div class="form-group">
-    <div class="field">
-      <%= form.label "Location Description" %>
-      <%= form.text_field :locDesc %>
+      <div class="field">
+        <!--
+        <%#= form.label "Location Name" %>
+-->
+        <%= form.text_field :locName %>
+      </div>
     </div>
 
-  </div>
-  <div class="actions">
-    <%= form.submit :Submit, class: 'btn btn-success'%>
-  </div>
-  <br/>
+    <div class="form-group">
+      <div class="field">
+        <!-- <%#= form.label "Location Description" %>-->
+        <%= form.text_field :locDesc %>
+      </div>
+
+    </div>
+    <div class="actions">
+      <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <br/>
+
+  <% end %>
 <% end %>

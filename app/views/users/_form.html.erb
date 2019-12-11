@@ -11,44 +11,58 @@
     </div>
   <% end %>
 
+  <%= bootstrap_form_for(@user) do |form| %>
 
-  <br/>
-  <div class="field">
-    <%= form.label :uName %>
-    <%= form.text_field :uName %>
-  </div>
+    <br/>
+    <div class="field">
+      <!--  <%#= form.label :uName %>-->
+      <%= form.text_field :uName %>
+    </div>
 
-  <div class="field">
-    <%= form.label :fName %>
-    <%= form.text_field :fName %>
-  </div>
+    <div class="field">
+      <!--
+    <%#= form.label :fName %>
+-->
+      <%= form.text_field :fName %>
+    </div>
 
-  <div class="field">
-    <%= form.label :lName %>
-    <%= form.text_field :lName %>
-  </div>
+    <div class="field">
+      <!--
+    <%#= form.label :lName %>
+-->
+      <%= form.text_field :lName %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+    <div class="field">
+      <!--
+    <%#= form.label :email %>
+-->
+      <%= form.text_field :email %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
+    <div class="field">
+      <!--
+    <%#= form.label :password %>
+-->
+      <%= form.password_field :password %>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= form.label :isAdmin %>
-    <%= form.text_field :isAdmin %>
-  </div>
+    <div class="field">
+      <!--
+    <%#= form.label :password_confirmation %>
+-->
+      <%= form.password_field :password_confirmation %>
+    </div>
+    <div class="field">
+      <!--
+    <%#= form.label :isAdmin %>
+-->
+      <%= form.text_field :isAdmin %>
+    </div>
 
-  <div class="actions">
-    <%= form.submit :Submit, class: 'btn btn-success'%>
-  </div>
-  <br/>
+    <div class="actions">
+      <%= form.submit :Submit, class: 'btn btn-success' %>
+    </div>
+    <br/>
+  <% end %>
 <% end %>

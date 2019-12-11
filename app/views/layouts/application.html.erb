@@ -23,23 +23,20 @@
               <div class="input-group">
                 <%= search_field_tag :search, params[:search], placeholder: "Search", class: "form-control" %>
                 <div class="input-group-btn">
-                  <%= button_tag "Search", :class => 'btn btn-info glyphicon glyphicon-search',:name => nil%>
+                  <%= button_tag "Search", :class => 'btn btn-success glyphicon glyphicon-search',:name => nil%>
                 </div>
               </div>
             <% end %>
           </li>
           <li class="nav-item" id='admins2'>
-            <a class="btn btn-dark text-light" href="<%= locations_path %>">Locations</a>
+            <a class="btn btn-danger text-light" href="<%= locations_path %>">Locations</a>
           </li>
           <li class="nav-item" id='admins1'>
-            <a class="btn btn-dark text-light" href="<%= items_path %>"">Items</a>
+            <a class="btn btn-danger text-light" href="<%= items_path %>">Items</a>
           </li>
           <li class="nav-item" id='admins'>
-            <a class="btn btn-dark text-light" href="<%= users_path %>">Administration</a>
+            <a class="btn btn-danger text-light" href="<%= users_path %>">Administration</a>
           </li>
-      </div>
-      <div class="order-3">
-        <ul class="navbar-nav">
           <li class="nav-item float-right">
             <a class="btn btn-warning text-dark " href="<%= logout_path %>">Logout</a>
           </li>
