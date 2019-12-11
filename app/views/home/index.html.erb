@@ -11,11 +11,11 @@
     <h3><%= location.locName %></h3>
     <table>
       <tr>
-        <td>Name</td>
-        <td>Number Available</td>
-        <td>Number In Use</td>
-        <td>Total Items</td>
-        <td>Item Description</td>
+        <th>Name</th>
+        <th>Number Available</th>
+        <th>Number In Use</th>
+        <th>Total Items</th>
+        <th>Item Description</th>
       </tr>
       <% @Item.where(locations_id: location.id).find_each do |item| %>
         <tr>
