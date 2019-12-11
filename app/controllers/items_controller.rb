@@ -5,21 +5,30 @@ class ItemsController < ApplicationController
   # GET /items.json
   def index
     @items = Item.all
-    @loc = Location.all
+    respond_to do |format|
+      format.xlsx {
+        response.headers[
+            'Content-Disposition'
+        ] = "attachment; filename=items.xlsx"
+      }
+      format.html {render :index}
+      @loc = Location.all
+    end
   end
 
   def change
     @loc = Location.all
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
+        format.html {redirect_to @item, notice: 'Item was successfully updated.'}
+        format.json {render :show, status: :ok, location: @item}
       else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @item.errors, status: :unprocessable_entity}
       end
     end
   end
+
   # GET /items/1
   # GET /items/1.json
   def show
@@ -45,11 +54,11 @@ class ItemsController < ApplicationController
     @loc = Location.all
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render :show, status: :created, location: @item }
+        format.html {redirect_to @item, notice: 'Item was successfully created.'}
+        format.json {render :show, status: :created, location: @item}
       else
-        format.html { render :new }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @item.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -60,11 +69,11 @@ class ItemsController < ApplicationController
     @loc = Location.all
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
+        format.html {redirect_to @item, notice: 'Item was successfully updated.'}
+        format.json {render :show, status: :ok, location: @item}
       else
-        format.html { render :edit }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
+        format.html {render :edit}
+        format.json {render json: @item.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -74,19 +83,20 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {redirect_to items_url, notice: 'Item was successfully destroyed.'}
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_item
-      @item = Item.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def item_params
-      params.require(:item).permit(:iName, :locations_id, :iAvail, :iUsed, :iTotal, :iDesc)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def item_params
+    params.require(:item).permit(:iName, :locations_id, :iAvail, :iUsed, :iTotal, :iDesc)
+  end
 end

@@ -1,0 +1,11 @@
+  wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Items") do |sheet|
+  # this is the head row of your spreadsheet
+  sheet.add_row %w(Item Locations Available Used Total_Amount Description)
+
+  # each item is a row on your spreadsheet
+  @items.each do |item|
+    sheet.add_row [item.iName, @loc.find_by_id(item.locations_id).locName, item.iAvail, item.iUsed, item.iTotal, item.iDesc]
+  end
+end
