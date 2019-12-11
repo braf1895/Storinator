@@ -1,7 +1,24 @@
 <h2 id=”notice”><%= notice %></h2>
 <tbody>
+  <table>
+  <tr>
+    <td>Name</td>
+    <td>Location</td>
+    <td>Number Available</td>
+    <td>Number In Use</td>
+    <td>Total Items</td>
+    <td>Item Description</td>
+  </tr>
 <% @results.each do |result| %>
-        <%= result.iName %><br>
-        <%= @loc.find_by_id(result.locations_id).locName %><br>
+        <tr>
+        <td><%= result.iName %></td>
+        <td><%= @loc.find_by_id(result.locations_id).locName %></td>
+        <td><%= result.iAvail %></td>
+        <td><%= result.iUsed %></td>
+        <td><%= result.iTotal %></td>
+        <td><%= result.iDesc %></td>
+        <td><%= link_to 'Edit', edit_item_path(result) %></td>
+        </tr>
     <% end %>
+    </table>
 </<tbody>

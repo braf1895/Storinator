@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :change]
   before_action :checkAdmin!
   # GET /items
   # GET /items.json
@@ -8,6 +8,18 @@ class ItemsController < ApplicationController
     @loc = Location.all
   end
 
+  def change
+    @loc = Location.all
+    respond_to do |format|
+      if @item.update(item_params)
+        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.json { render :show, status: :ok, location: @item }
+      else
+        format.html { render :edit }
+        format.json { render json: @item.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   # GET /items/1
   # GET /items/1.json
   def show
