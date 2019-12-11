@@ -1,0 +1,41 @@
+<div class="container">
+
+  <p id="notice"><%= notice %></p>
+
+  <h1>Items</h1>
+
+  <table>
+    <thead>
+    <tr>
+      <th>Item Name</th>
+      <th>Location</th>
+      <th>Number Available</th>
+      <th>Number In Use</th>
+      <th>Total Count</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.iName %></td>
+        <td><%= @loc.find_by_id(item.locations_id).locName %></td>
+        <td><%= item.iAvail %></td>
+        <td><%= item.iUsed %></td>
+        <td><%= item.iTotal %></td>
+        <td><%= item.iDesc %></td>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Item', new_item_path, :class => "btn btn-primary text-dark" %>
+
+</div>

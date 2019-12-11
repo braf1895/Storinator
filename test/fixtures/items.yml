@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  iName: MyString
+  locations: one
+  iAvail: 1
+  iUsed: 1
+  iTotal: 1
+  iDesc: MyString
+
+two:
+  iName: MyString
+  locations: two
+  iAvail: 1
+  iUsed: 1
+  iTotal: 1
+  iDesc: MyString

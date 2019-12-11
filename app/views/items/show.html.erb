@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Iname:</strong>
+  <%= @item.iName %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @item.locations_id %>
+</p>
+
+<p>
+  <strong>Iavail:</strong>
+  <%= @item.iAvail %>
+</p>
+
+<p>
+  <strong>Iused:</strong>
+  <%= @item.iUsed %>
+</p>
+
+<p>
+  <strong>Itotal:</strong>
+  <%= @item.iTotal %>
+</p>
+
+<p>
+  <strong>Idesc:</strong>
+  <%= @item.iDesc %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

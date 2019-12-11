@@ -1,0 +1,7 @@
+<h2 id=”notice”><%= notice %></h2>
+<tbody>
+<% @results.each do |result| %>
+        <%= result.iName %><br>
+        <%= @loc.find_by_id(result.locations_id).locName %><br>
+    <% end %>
+</<tbody>

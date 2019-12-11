@@ -1,0 +1,46 @@
+<%= form_with(model: item, local: true) do |form| %>
+  <% if item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+        <% item.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <br/>
+  <div class="field">
+    <%= form.label "  Item Name  " %>
+    <%= form.text_field :iName %>
+  </div>
+
+  <div class="field">
+    <% options = options_from_collection_for_select(@loc, 'id', 'locName') %>
+    <%= form.label "  Location  " %>
+    <%= form.select :locations_id, options %>
+  </div>
+
+  <div class="field">
+    <%= form.label "  Number Available  " %>
+    <%= form.number_field :iAvail %>
+  </div>
+
+  <div class="field">
+    <%= form.label "  Number In Use  " %>
+    <%= form.number_field :iUsed %>
+  </div>
+
+  <div class="field">
+    <%= form.label "  Description (255 characters max)  " %>
+    <%= form.text_field :iDesc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :Submit, class: 'btn btn-success' %>
+  </div>
+  <br/>
+<% end %>
